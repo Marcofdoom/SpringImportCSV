@@ -7,7 +7,7 @@ import javax.persistence.Id;
 public class Citizen {
 
 	@Id
-	private Long id;
+	private Long citizen_id;
 	private String name;
 	private Integer age;
 	private String address;
@@ -16,19 +16,19 @@ public class Citizen {
 
 	}
 
-	public Citizen(Long id, String name, Integer age, String address) {
-		this.id = id;
+	public Citizen(Long citizen_id, String name, Integer age, String address) {
+		this.citizen_id = citizen_id;
 		this.name = name;
 		this.age = age;
 		this.address = address;
 	}
 
-	public Long getId() {
-		return id;
+	public Long getCitizen_id() {
+		return citizen_id;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setCitizen_id(Long citizen_id) {
+		this.citizen_id = citizen_id;
 	}
 
 	public String getName() {

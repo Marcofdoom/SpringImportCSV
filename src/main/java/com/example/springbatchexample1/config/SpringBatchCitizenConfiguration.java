@@ -22,7 +22,7 @@ import com.example.springbatchexample1.model.Citizen;
 
 @Configuration
 @EnableBatchProcessing
-public class SpringBatchConfiguration {
+public class SpringBatchCitizenConfiguration {
 
 	@Bean
 	public Job job(JobBuilderFactory jobBuilderFactory, StepBuilderFactory stepBuilderFactory,
@@ -34,8 +34,8 @@ public class SpringBatchConfiguration {
 		return jobBuilderFactory.get("ETL-Load").incrementer(new RunIdIncrementer()).start(step).build();
 	}
 
+
 	@Bean
-//	public FlatFileItemReader<Citizen> fileItemReader(@Value("${input}") Resource resource) {
 	public FlatFileItemReader<Citizen> fileItemReader(@Value("${path.input}") Resource resource) {
 		FlatFileItemReader<Citizen> flatFileItemReader = new FlatFileItemReader<Citizen>();
 		flatFileItemReader.setResource(resource);
@@ -52,7 +52,7 @@ public class SpringBatchConfiguration {
 
 		lineTokenizer.setDelimiter(",");
 		lineTokenizer.setStrict(false);
-		lineTokenizer.setNames(new String[] { "id", "name", "age", "address" });
+		lineTokenizer.setNames(new String[] { "citizen_id", "name", "age", "address" });
 
 		BeanWrapperFieldSetMapper<Citizen> fieldSetMapper = new BeanWrapperFieldSetMapper<>();
 		fieldSetMapper.setTargetType(Citizen.class);

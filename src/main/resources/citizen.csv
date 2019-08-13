@@ -1,6 +1,8 @@
-id,name,age,address
+citizen_id,name,age,address
 1,Steve,31,6 Awesome Street
 2,Joe,26,4 Kebab Close
 3,Aysha,27,18 Cheltenham Road
 4,Nick,24,67 Church Common
 5,Jun,23,35 Matrix Way
+6,,,46 No Way Street
+7,Jun,,45 No Way Street
