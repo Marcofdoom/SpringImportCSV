@@ -1,8 +1,8 @@
-citizen_id,name,age,address
-1,Steve,31,6 Awesome Street
-2,Joe,26,4 Kebab Close
-3,Aysha,27,18 Cheltenham Road
-4,Nick,24,67 Church Common
-5,Jun,23,35 Matrix Way
-6,,,46 No Way Street
-7,Jun,,45 No Way Street
+citizenId,fornames,surname,homeAddress,dateOfBirth,placeOfBirth,sex
+1,Marc,Partington,6 Awesome Street,03/12/1987,Milton Keynes,male
+2,Joe,Robinson,4 Kebab Close,13/08/1995,Yorkshire,male
+3,Aysha,Marty,18 Cheltenham Road,23/04/1989,Edinburgh,female
+4,Nick,Pape,67 Church Common,01/06/1995,Gloucester,male
+5,Jun,Awesomo,35 Matrix Way,18/01/1997,London,male
+6,,,,,,
+7,Jun,McQueen,45 No Way Street,06/12/1996,Gloucester,male

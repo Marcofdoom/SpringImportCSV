@@ -10,4 +10,6 @@ import com.example.springbatchexample1.model.Citizen;
 public interface CitizenService {
 
 	public List<Citizen> getAllCitizen(Citizen citizen);
+
+	public Citizen getCitizen(Citizen citizen);
 }

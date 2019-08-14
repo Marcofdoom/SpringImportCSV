@@ -6,30 +6,25 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.springbatchexample1.model.Citizen;
-import com.example.springbatchexample1.repository.CitizenClassRepository;
+import com.example.springbatchexample1.repository.CitizenRepository;
 
 @Service
 public class CitizenServiceImplementation implements CitizenService {
 
-//	private CitizenRepository citizenRepository;
-	
-	private CitizenClassRepository citizenRepository;
+	private CitizenRepository citizenRepository;
 
-//	@Autowired
-//	public CitizenServiceImplementation(CitizenRepository citizenRepository) {
-//		this.citizenRepository = citizenRepository;
-//	}
-	
 	@Autowired
-	public CitizenServiceImplementation(CitizenClassRepository citizenRepository) {
+	public CitizenServiceImplementation(CitizenRepository citizenRepository) {
 		this.citizenRepository = citizenRepository;
 	}
 
 	@Override
 	public List<Citizen> getAllCitizen(Citizen citizen) {
-		System.out.println(citizen.getName());
-		System.out.println(citizen.getAddress());
-		return citizenRepository.findCitizenByNameAndAddress(citizen.getName(), citizen.getAddress());
-//		return citizenRepository.findCitizenByName(citizen.getName());
+		return citizenRepository.findCitizenByNameAndAddress(citizen.getFornames(), citizen.getSurname());
+	}
+
+	@Override
+	public Citizen getCitizen(Citizen citizen) {
+		return citizenRepository.findCitizen(citizen.getFornames(), citizen.getSurname());
 	}
 }

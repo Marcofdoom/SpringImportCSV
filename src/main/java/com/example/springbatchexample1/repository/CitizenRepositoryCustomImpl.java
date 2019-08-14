@@ -16,12 +16,12 @@ import org.springframework.stereotype.Repository;
 import com.example.springbatchexample1.model.Citizen;
 
 @Repository
-public class CitizenClassRepository {
+public class CitizenRepositoryCustomImpl implements CitizenRepositoryCustom {
 
 	private EntityManager entityManager;
 
 	@Autowired
-	public CitizenClassRepository(EntityManager entityManager) {
+	public CitizenRepositoryCustomImpl(EntityManager entityManager) {
 		this.entityManager = entityManager;
 	}
 
@@ -47,6 +47,17 @@ public class CitizenClassRepository {
 		cq.where(predicates.toArray(new Predicate[0]));
 
 		TypedQuery<Citizen> query = entityManager.createQuery(cq);
+
 		return query.getResultList();
+	}
+
+	public Citizen findCitizen(String fornames, String surname) {
+		TypedQuery<Citizen> query = entityManager.createQuery("SELECT c FROM Citizen c WHERE c.fornames = :fornames",
+				Citizen.class);
+
+		query.setParameter("fornames", fornames);
+//		query.setParameter("surname", surname);
+
+		return query.getResultList().get(0);
 	}
 }

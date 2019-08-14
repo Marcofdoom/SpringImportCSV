@@ -34,4 +34,9 @@ public class CitizenController {
 	public ResponseEntity<Object> getAllCitizens(@RequestBody Citizen citizen) {
 		return new ResponseEntity<>(service.getAllCitizen(citizen), HttpStatus.OK);
 	}
+
+	@GetMapping("/getCitizen")
+	public ResponseEntity<Object> getCitizen(@RequestBody Citizen citizen) {
+		return new ResponseEntity<>(service.getCitizen(citizen), HttpStatus.OK);
+	}
 }

@@ -34,7 +34,6 @@ public class SpringBatchCitizenConfiguration {
 		return jobBuilderFactory.get("ETL-Load").incrementer(new RunIdIncrementer()).start(step).build();
 	}
 
-
 	@Bean
 	public FlatFileItemReader<Citizen> fileItemReader(@Value("${path.input}") Resource resource) {
 		FlatFileItemReader<Citizen> flatFileItemReader = new FlatFileItemReader<Citizen>();
@@ -52,7 +51,8 @@ public class SpringBatchCitizenConfiguration {
 
 		lineTokenizer.setDelimiter(",");
 		lineTokenizer.setStrict(false);
-		lineTokenizer.setNames(new String[] { "citizen_id", "name", "age", "address" });
+		lineTokenizer.setNames(new String[] { "citizen_id", "fornames", "surname", "homeAddress", "dateOfBirth",
+				"placeOfBirth", "sex" });
 
 		BeanWrapperFieldSetMapper<Citizen> fieldSetMapper = new BeanWrapperFieldSetMapper<>();
 		fieldSetMapper.setTargetType(Citizen.class);
